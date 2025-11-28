@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
+    />
+  </head>
+  <body class="page">
+    <main class="page__main">
+      <section class="contact">
+        <div class="contact__container">
+          <h1 class="contact__title">Contact us</h1>
+
+          <form class="contact-form" id="contactForm" novalidate autocomplete="off">
+            <div class="contact-form__section contact-form__section--fields">
+              <div class="contact-form__field" data-field="firstName">
+                <label class="contact-form__label" for="firstName">
+                  First Name <span class="contact-form__required">*</span>
+                </label>
+                <input
+                  class="contact-form__input"
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+
+              <div class="contact-form__field" data-field="lastName">
+                <label class="contact-form__label" for="lastName">
+                  Last Name <span class="contact-form__required">*</span>
+                </label>
+                <input
+                  class="contact-form__input"
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  autocomplete="family-name"
+                  required
+                />
+              </div>
+
+              <div class="contact-form__field" data-field="email">
+                <label class="contact-form__label" for="email">
+                  Email <span class="contact-form__required">*</span>
+                </label>
+                <input
+                  class="contact-form__input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+
+              <div
+                class="contact-form__field contact-form__field--phone"
+                data-field="phone"
+              >
+                <label class="contact-form__label" for="phoneNumber">
+                  Phone
+                </label>
+                <div class="PhoneInput" data-phone-input>
+                  <input type="hidden" id="phoneCountry" name="phoneCountry" value="SG" />
+                  <div class="PhoneInputCountryWrapper">
+                    <button
+                      class="PhoneInputCountryTrigger"
+                      type="button"
+                      aria-label="Phone number country"
+                      aria-haspopup="listbox"
+                      aria-expanded="false"
+                      aria-controls="phoneCountryDropdown"
+                    >
+                      <span class="PhoneInputCountryIcon" aria-hidden="true">
+                        <img
+                          class="PhoneInputCountryIconImg"
+                          alt="Singapore"
+                          src="https://purecatamphetamine.github.io/country-flag-icons/3x2/SG.svg"
+                        />
+                      </span>
+                      <span class="PhoneInputCountryChevron" aria-hidden="true"></span>
+                    </button>
+                    <div
+                      class="PhoneInputDropdown"
+                      id="phoneCountryDropdown"
+                      role="listbox"
+                      hidden
+                    ></div>
+                  </div>
+                  <input
+                    class="PhoneInputInput"
+                    type="tel"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+
+              <div class="contact-form__field" data-field="country">
+                <label class="contact-form__label" for="countryDisplay">
+                  Country (required location)
+                  <span class="contact-form__required">*</span>
+                </label>
+                <div class="select-input" data-country-select>
+                  <input type="hidden" id="country" name="country" value="" />
+                  <button
+                    class="select-input__display"
+                    type="button"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-controls="countryDropdown"
+                    id="countryDisplay"
+                  >
+                    <span class="select-input__value">Select country</span>
+                  </button>
+                  <button
+                    class="select-input__clear"
+                    type="button"
+                    aria-label="Clear country"
+                  >
+                    &times;
+                  </button>
+                  <span class="select-input__arrow" aria-hidden="true"></span>
+                  <div
+                    class="select-input__dropdown"
+                    role="listbox"
+                    id="countryDropdown"
+                    hidden
+                  ></div>
+                </div>
+              </div>
+
+              <div class="contact-form__field" data-field="message">
+                <label class="contact-form__label" for="message">
+                  Message <span class="contact-form__required">*</span>
+                </label>
+                <input
+                  class="contact-form__input"
+                  type="text"
+                  id="message"
+                  name="message"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="contact-form__section contact-form__section--consent">
+              <div
+                class="contact-form__field contact-form__field--checkbox"
+                data-field="consent"
+              >
+                <label class="checkbox" for="consent">
+                  <input
+                    class="checkbox__input"
+                    type="checkbox"
+                    id="consent"
+                    name="consent"
+                    required
+                  />
+                  <span class="checkbox__box"></span>
+                  <span class="checkbox__label-text">
+                    I confirm and agree to the storing and processing of my
+                    personal data as described in the privacy statement.
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="contact-form__section contact-form__section--captcha">
+              <div
+                class="contact-form__field contact-form__field--captcha"
+                data-field="captcha"
+              >
+                <div id="contactCaptcha"></div>
+              </div>
+            </div>
+
+            <div class="contact-form__section contact-form__section--actions">
+              <div class="contact-form__actions">
+                <button
+                  class="contact-form__submit"
+                  type="submit"
+                  id="contactSubmit"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <div class="contact__powered-by">
+            <a
+              class="contact__powered-by-link"
+              href="https://peppercloud.com/"
+              target="_blank"
+            >
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjI1LjUwMSIgaGVpZ2h0PSIyNC4yMTUiIHZpZXdCb3g9IjAgMCAyMjUuNTAxIDI0LjIxNSI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjAuNSIgeDI9IjAuNSIgeTI9IjEiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmY5MTAwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmOTIwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgaWQ9Ikdyb3VwXzEyNDE1IiBkYXRhLW5hbWU9Ikdyb3VwIDEyNDE1IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzOTY4LjY4NCAxMDM4NC4wNTQpIj4KICAgIDxwYXRoIGlkPSJlbGVjdHJpY2l0eSIgZD0iTTE2Ny43MjUsNTRhLjc0NS43NDUsMCwwLDAtLjcxMS41MjVsLTIuOTgsOS42ODRhLjc0NS43NDUsMCwwLDAsLjcxMS45NjVoMi4xNzdsLS42ODQsOC44ODNhLjc0NS43NDUsMCwwLDAsMS4zNTYuNDc5bDguMTk0LTExLjkxOWEuNzQ1Ljc0NSwwLDAsMC0uNjE0LTEuMTY3aC0yLjUybDMuMTg2LTYuMzcxQS43NDUuNzQ1LDAsMCwwLDE3NS4xNzQsNTRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDEzMi40MjkgLTEwNDM0Ljk2MikiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIwLjUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQpIi8+CiAgICA8dGV4dCBpZD0iUG93ZXJlZF9ieV9QZXBwZXJfQ2xvdWQiIGRhdGEtbmFtZT0iUG93ZXJlZCBieSBQZXBwZXIgQ2xvdWQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zODQ3LjE4MiAtMTAzNjcuMDU0KSIgZmlsbD0iIzAyOTFhZSIgZm9udC1zaXplPSIxNiIgZm9udC1mYW1pbHk9IlBvcHBpbnMtUmVndWxhciwgUG9wcGlucyI+PHRzcGFuIHg9Ii0xMDMuNDgiIHk9IjAiIGZpbGw9IiMwMDAiPlBvd2VyZWQgYnk8L3RzcGFuPjx0c3BhbiB5PSIwIiB4bWw6c3BhY2U9InByZXNlcnZlIiBmaWxsPSIjMDI5MWFlIiBmb250LWZhbWlseT0iUG9wcGlucy1TZW1pQm9sZCwgUG9wcGlucyIgZm9udC13ZWlnaHQ9IjYwMCI+IFBlcHBlciBDbG91ZDwvdHNwYW4+PC90ZXh0PgogIDwvZz4KPC9zdmc+"
+                alt="Powered by Peppercloud"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="main.js"></script>
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=contactFormRecaptchaLoad&render=explicit"
+      async
+      defer
+    ></script>
+  </body>
+</html>
