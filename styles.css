@@ -20,7 +20,7 @@
   --color-border-focus: #000000;
   --color-error: #d32f2f;
   --color-success: #2e7d32;
-  --radius-card: 12px;
+  --radius-card: 20px;
   --radius-input: 999px;
   --radius-textarea: 10px;
   --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.08);
@@ -80,7 +80,7 @@ body.page {
 .contact__title {
   margin: 0 0 16px;
   font-size: 25px;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 /* =========
@@ -277,8 +277,13 @@ body.page {
 }
 
 .select-input__option--selected {
-  background: rgba(3, 178, 203, 0.2);
-  color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.select-input__option--selected:hover,
+.select-input__option--selected:focus-visible {
+  background: var(--color-primary);
 }
 
 .contact-form__input:focus,
@@ -331,7 +336,6 @@ body.page {
   align-items: center;
   height: 100%;
   position: relative;
-  padding-right: 12px;
   margin-right: 8px;
   border-right: 1px solid rgba(0, 0, 0, 0.08);
   flex: 0 0 auto;
@@ -438,8 +442,14 @@ body.page {
 }
 
 .PhoneInputDropdownOption--selected {
-  background: rgba(3, 178, 203, 0.2);
-  color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.PhoneInputDropdownOption--selected:hover,
+.PhoneInputDropdownOption--selected:focus-visible {
+  background: var(--color-primary);
+  color: #fff;
 }
 
 .PhoneInputInput {
@@ -453,6 +463,16 @@ body.page {
   caret-color: var(--color-primary);
   min-width: 0;
   letter-spacing: 0.5px;
+}
+
+.PhoneInputInput::-webkit-inner-spin-button,
+.PhoneInputInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.PhoneInputInput[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .PhoneInputInput:focus {
@@ -648,6 +668,7 @@ body.page {
 
   .contact__title {
     font-size: 20px;
+    font-weight: 600;
   }
 
   .PhoneInput {

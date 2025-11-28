@@ -7,10 +7,17 @@ const CAPTCHA_SITE_KEY = "6LeqfRosAAAAABUuIsJrK0Fgl482k5GY4SICTqjL";
 const COUNTRY_OPTIONS = [
   { value: "", label: "Select country" },
   { value: "SG", label: "Singapore" },
-  { value: "VN", label: "Vietnam" },
-  { value: "US", label: "United States" },
-  { value: "GB", label: "United Kingdom" },
   { value: "AU", label: "Australia" },
+  { value: "MY", name: "Malaysia" },
+  { value: "NZ", name: "New Zealand" },
+  { value: "PH", name: "Philippines" },
+  { value: "TH", name: "Thailand" },
+  { value: "US", label: "USA" },
+  { value: "VN", label: "Vietnam" },
+  { value: "JP", name: "Japan" },
+  { value: "KR", name: "Korea" },
+  { value: "TW", name: "Taiwan" },
+  { value: "OT", label: "Others" },
 ];
 
 // Simple, clean validation logic for the Contact form
@@ -138,7 +145,7 @@ const COUNTRY_OPTIONS = [
       return true;
     }
 
-    const basicPhonePattern = /^[0-9+\-\s]{5,}$/;
+    const basicPhonePattern = /^[0-9]{5,}$/;
     if (!basicPhonePattern.test(value)) {
       setFieldError(
         "phone",
@@ -272,9 +279,16 @@ const COUNTRY_OPTIONS = [
     const triggerBtn = wrapper.querySelector(".PhoneInputCountryTrigger");
     const flagImg = triggerBtn?.querySelector(".PhoneInputCountryIconImg");
     const dropdown = wrapper.querySelector(".PhoneInputDropdown");
+    const phoneInput = formEl?.querySelector("#phoneNumber");
 
     if (!hiddenInput || !triggerBtn || !flagImg || !dropdown) {
       return null;
+    }
+
+    if (phoneInput) {
+      phoneInput.setAttribute("inputmode", "numeric");
+      phoneInput.setAttribute("pattern", "[0-9]*");
+      phoneInput.addEventListener("input", enforceNumericPhoneValue);
     }
 
     let isOpen = false;
@@ -410,6 +424,17 @@ const COUNTRY_OPTIONS = [
           break;
         default:
           break;
+      }
+    }
+
+    function enforceNumericPhoneValue(event) {
+      const inputEl = event.target;
+      if (!(inputEl instanceof HTMLInputElement)) {
+        return;
+      }
+      const digitsOnly = inputEl.value.replace(/\D+/g, "");
+      if (digitsOnly !== inputEl.value) {
+        inputEl.value = digitsOnly;
       }
     }
 
